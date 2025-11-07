@@ -1,7 +1,22 @@
+import { ChevronRightIcon } from "lucide-react";
 import './App.css'
-import { ChevronRightIcon, DeleteIcon } from "lucide-react";
 
-function App() {  
+function App() {
+
+  const [tasks, setTasks] = useState([
+    { id: 1, title: 'Estudar React' },
+    { id: 2, title: 'Estudar Next' },
+    { id: 3, title: 'Estudar Node' },
+  ]);
+
+  // apagar uma tarefa
+  function onDeleteTask(){
+    const newTask = tasks.filter(
+      (task) => task.id !== id
+    );
+    setTasks(newTask);
+  }
+  
   return (
     <div className='h-screen w-screen flex flex-col items-center bg-slate-950 text-white' >
       
@@ -13,19 +28,16 @@ function App() {
       <div className="flex gap-2 mt-10">
         <h3 className="bg-slate-800 px-5 py-2 w-sm rounded-md">Estudar React</h3>
         <button className="bg-slate-800 px-2 py-2 rounded-md"> <ChevronRightIcon /> </button>
-        <button className="bg-red-400 px-2 py-2 rounded-md"> <DeleteIcon /> </button>
       </div>
 
       <div className="flex gap-2 mt-2">
         <h3 className="bg-slate-800 px-5 py-2 w-sm rounded-md">Estudar Next</h3>
         <button className="bg-slate-800 px-2 py-2 rounded-md"> <ChevronRightIcon /> </button>
-        <button className="bg-red-400 px-2 py-2 rounded-md"> <DeleteIcon /> </button>
       </div>
 
       <div className="flex gap-2 mt-2">
         <h3 className="bg-slate-800 px-5 py-2 w-sm rounded-md">Estudar Node</h3>
         <button className="bg-slate-800 px-2 py-2 rounded-md"> <ChevronRightIcon /> </button>
-        <button className="bg-red-400 px-2 py-2 rounded-md"> <DeleteIcon /> </button>
       </div>
 
     </div>
